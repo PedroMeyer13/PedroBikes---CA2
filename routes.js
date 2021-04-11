@@ -8,7 +8,7 @@ router.post('/users', userCtrl.createUser);
 router.get('/users', userCtrl.getUsers);
 router.get('/users/:id', userCtrl.getUser);
 router.put('/users/:id', userCtrl.updateUser);
-router.delete('/users/:id', userCtrl.deleteUser);
+//router.delete('/users/:id', userCtrl.deleteUser);
 
 module.exports.UPLOAD_PATH = "uploads";
 
