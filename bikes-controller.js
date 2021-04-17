@@ -5,6 +5,6 @@ exports.getBikes = function(req, res) {
       if (err) {
         res.status(400).json(err); 
       } 
-      res.json(users);
+      res.json(bikes);
     }); 
   };

@@ -20,8 +20,10 @@ router.get('/images', imageCtrl.getImages);
 router.get('/images/:id', imageCtrl.getImage);
 router.delete('/images/:id', imageCtrl.deleteImage);
 
-module.exports = router;
-
 var bikesCtrl = require('./bikes-controller');
+router.get('/bikes', bikesCtrl.getBikes);
+
+
+module.exports = router;
 
 
