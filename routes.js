@@ -21,8 +21,10 @@ router.get('/images/:id', imageCtrl.getImage);
 router.delete('/images/:id', imageCtrl.deleteImage);
 
 var bikesCtrl = require('./bikes-controller');
+router.post('/bikes', bikesCtrl.createBike);
 router.get('/bikes', bikesCtrl.getBikes);
-
+//router.get('/bikes/:item', bikesCtrl.getBike);
+router.get('/bikes/:kids', bikesCtrl.getKids);
 
 module.exports = router;
 

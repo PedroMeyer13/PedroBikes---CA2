@@ -6,6 +6,6 @@ var imageSchema = new mongoose.Schema({
     item: String,
     price: Number
 },
-{ timestamps: true });
+{ timestamps: false,  versionKey: false });
 
 module.exports = mongoose.model('Bikes', imageSchema);
