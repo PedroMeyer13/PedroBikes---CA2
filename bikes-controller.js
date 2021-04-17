@@ -45,3 +45,20 @@ exports.createBike = function(req, res) {
 });
 };
   
+exports.deleteBikes = function(req, res) {
+  Bikes.deleteOne({item: req.params.item}, function (err, bikes) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.json(bikes);
+  }); 
+};
+
+/*exports.deleteBikes = function(req, res) {
+  Bikes.findByIdAndRemove({_id: req.params.id}, function (err, bikes) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.json(bikes);
+  }); 
+};*/

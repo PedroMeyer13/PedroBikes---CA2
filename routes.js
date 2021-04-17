@@ -23,8 +23,9 @@ router.delete('/images/:id', imageCtrl.deleteImage);
 var bikesCtrl = require('./bikes-controller');
 router.post('/bikes', bikesCtrl.createBike);
 router.get('/bikes', bikesCtrl.getBikes);
-//router.get('/bikes/:item', bikesCtrl.getBike);
 router.get('/bikes/:kids', bikesCtrl.getKids);
+router.delete('/bikes/:item', bikesCtrl.deleteBikes);
+//router.get('/bikes/:item', bikesCtrl.getBike);
 
 module.exports = router;
 
