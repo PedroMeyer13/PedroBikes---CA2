@@ -28,7 +28,7 @@ exports.getUser = function(req, res) {
     res.json(users);
   }); 
 };
-
+  
 exports.updateUser = function(req, res) {
   User.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, function (err, users) {
     if (err) {
