@@ -1,4 +1,6 @@
-var React = require('react');
+'use strict';
+
+const e = React.createElement;
 
 class MyComponent extends React.Component {
     constructor(props) {
@@ -9,7 +11,7 @@ class MyComponent extends React.Component {
         items: []
       };
     }
-  
+
     componentDidMount() {
       fetch("https://api.example.com/items")
         .then(res => res.json())
@@ -19,6 +21,7 @@ class MyComponent extends React.Component {
               isLoaded: true,
               items: result.items
             });
+            console.log(items);
           },
           // Note: it's important to handle errors here
           // instead of a catch() block so that we don't swallow
@@ -54,4 +57,32 @@ class MyComponent extends React.Component {
 
 
   const domContainer = document.querySelector('#table_API');
-  ReactDOM.render(e(LikeButton), domContainer);
+  ReactDOM.render(e, domContainer);
+
+  function fetchData(){
+    fetch("https://8000-indigo-parrot-n87uevk6.ws-eu03.gitpod.io/bikes")
+    .then(response => {
+        if(!response.ok){
+            throw Error("Error");
+        }
+        console.log(response)
+        var data =  response.json();
+        return data
+        
+    })
+    .then( data => {
+        const html = data.data.map(bikes => {
+            return "<p>Bikes: ${bikes} </p>"
+        })
+        console.log(html)
+        console.log(data)
+        document.querySelector("#table_API")
+        .insertAdjacentHTML("afterbegin", '<h1>helloo</h1>');
+
+    })
+    .catch(error => {
+        console.log(error);
+    })
+}
+
+fetchData();
