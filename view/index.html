@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="tables.js"></script>
-        <link rel="stylesheet" href="style.css" />
-        <meta charset="UTF-8" />
-        <meta name="viewport" 
-              content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        </div>
-        <h1>Registered Employees</h1>
-        <!-- table for showing data -->
-        <table id="employees"></table>
-    </body>
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" 
+            content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Registered Employees</h1>
+    <!-- table for showing data -->
+    <table id="employees"></table>
+
+    <!-- We will put our React component inside this div. -->
+    <div id="like_button_container"></div>
+
+    <div id = "table_API"></div>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <!-- Load our React component. -->
+    <script src="like_button.js"></script>
+    <script src="js/tables.js"></script>
+    <script src="MyComponent.js"></script>
+</body>
 </html>
