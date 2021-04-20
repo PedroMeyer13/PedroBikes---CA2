@@ -9,7 +9,7 @@ mongoose = require('mongoose');
 dotenv = require("dotenv");
 
 var app = express();
-var port = 8000;
+var port = process.env.PORT || 8000;
 var server = http.createServer(app); //This is where our server gets created
 dotenv.config();
 
