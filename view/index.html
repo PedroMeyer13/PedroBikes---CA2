@@ -1,32 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" 
-            content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1>Registered Employees</h1>
-    <!-- table for showing data -->
-    <table id="employees"></table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- We will put our React component inside this div. -->
-    <div id="like_button_container"></div>
+<style>
+    th{ 
+        color:#fff;
+            }
+</style>
 
-    <div id = "table_API"></div>
 
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th>Bike Type</th>
+        <th>Bike</th>
+        <th>Price</th>
+    </tr>
 
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-    <!-- Load our React component. -->
-    <script src="like_button.js"></script>
-    <script src="js/tables.js"></script>
-    <script src="example.js"></script>
-</body>
-</html>
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].name}</td>
+							<td>${data[i].age}</td>
+							<td>${data[i].birthdate}</td>
+					  </tr>`
+			table.innerHTML += row
+            console.log("Hello")
+
+		}
+	}
+
+</script>
