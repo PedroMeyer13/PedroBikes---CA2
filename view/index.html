@@ -1,3 +1,5 @@
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -12,7 +14,7 @@
 <div class = "row">
     <div class = "col">
         <div class = "card card-body">
-            <input type="search - input" class = "form-control" type="text">
+            <input id="search-input" class = "form-control" type="text">
         </div>
     </div>
 </div>
@@ -31,17 +33,18 @@
 
 <script>
 
-var myArray = [
-	    {'name':'Michael', 'age':'30', 'birthdate':'11/10/1989'},
-	    {'name':'Mila', 'age':'32', 'birthdate':'10/1/1989'},
-	    {'name':'Paul', 'age':'29', 'birthdate':'10/14/1990'},
-	    {'name':'Dennis', 'age':'25', 'birthdate':'11/29/1993'},
-	    {'name':'Tim', 'age':'27', 'birthdate':'3/12/1991'},
-	    {'name':'Erik', 'age':'24', 'birthdate':'10/31/1995'},
-	]
+var newArray = []
 
-    
-	buildTable(myArray)
+    $.ajax({
+		method:'GET',
+		url:'https://8000-crimson-cat-ymbwqdge.ws-eu03.gitpod.io/bikes',
+		success:function(response){
+			newArray = response
+			buildTable(newArray)
+			console.log(newArray)
+		}
+	})
+	buildTable(newArray)
 
 	$('th').on('click', function(){
      var column = $(this).data('colname')
@@ -52,31 +55,37 @@ var myArray = [
      
      
      if (order == 'desc'){
-        myArray = myArray.sort((a, b) => a[column] > b[column] ? 1 : -1)
+        newArray = newArray.sort((a, b) => a[column] > b[column] ? 1 : -1)
         $(this).data("order","asc");
         text += '&#9660'
      }else{
-        myArray = myArray.sort((a, b) => a[column] < b[column] ? 1 : -1)
+        newArray = newArray.sort((a, b) => a[column] < b[column] ? 1 : -1)
         $(this).data("order","desc");
         text += '&#9650'
      }
 
     $(this).html(text)
-    buildTable(myArray)
+    buildTable(newArray)
     })
 
 $('#search-input').on('keyup', function(){
     var value = $(this).val()
     console.log("value")
-    //var data =
-    //buildTable(data)
+    var data = searchTable(value, newArray)
+    buildTable(data)
 })
 
 function searchTable(value, data){
     var filteredTable = []
 
     for(var i = 0; i < data.length; i++){
-        value = value.
+        escape(value).toLowerCase()
+        value = value.toLowerCase();
+        var name = data[i].bike.toLowerCase()
+
+        if(name.includes(value)){
+            filteredTable.push(data[i])
+        }
     }
     return filteredTable
 }
@@ -90,13 +99,11 @@ function buildTable(data){
         var colbirth = `birth-${i}`
 
         var row = `<tr>
-                        <td>${data[i].name}</td>
-                        <td>${data[i].age}</td>
-                        <td>${data[i].birthdate}</td>
+                        <td>${data[i].bike}</td>
+                        <td>${data[i].item}</td>
+                        <td>${data[i].price}</td>
                    </tr>`
         table.innerHTML += row
     }
 }
-
-
 </script>
