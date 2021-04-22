@@ -1,5 +1,5 @@
 function fetchData(){
-    fetch("https://8000-copper-limpet-wg0t85rk.ws-eu03.gitpod.io/bikes")
+    fetch("https://8000-coral-panda-vr8mugm9.ws-eu03.gitpod.io/bikes")
     .then(response => {
         if(!response.ok){
             throw Error("Error");
@@ -9,17 +9,18 @@ function fetchData(){
     })
     .then( data => {
         const html = data.map(bikes => {
-            return '<p>Bikes:' + bikes.item + '</p>'
-        })
-        console.log(html)
-        console.log(data)
-        document.querySelector("#table_API")
-        .insertAdjacentHTML("afterbegin", '<h1>helloo</h1>');
+            return bikes;
+                    
+        }).join("");
+        document
+        .querySelector("#table_API")
+        .insertAdjacentHTML("afterbegin", html);
 
     })
     .catch(error => {
         console.log(error);
     })
 }
+
 
 fetchData();

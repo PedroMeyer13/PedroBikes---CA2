@@ -20,7 +20,7 @@ app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'view'))); //We define the views folder as the one where all static content will be served
 
 app.get('/', function(req, res) {
-    res.render('index');
+    res.render('jasontable.html');
 });
 
 app.listen(port, function(err){
