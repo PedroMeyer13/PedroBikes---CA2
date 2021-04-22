@@ -1,5 +1,5 @@
 function fetchData(){
-    fetch("https://8000-indigo-parrot-n87uevk6.ws-eu03.gitpod.io/bikes")
+    fetch("https://8000-copper-limpet-wg0t85rk.ws-eu03.gitpod.io/bikes")
     .then(response => {
         if(!response.ok){
             throw Error("Error");

@@ -27,7 +27,6 @@ app.listen(port, function(err){
     console.log('Listening on port: ' + port);
 });
 
-
 const dbURI = process.env.DB_URL;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
