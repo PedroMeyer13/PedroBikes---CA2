@@ -17,10 +17,12 @@ var newArray = []
 		};
 
 		const response = axios.post('/bikes', {
-			formData
+			Name: name,
+			Days: days,
+			user: user
 		  });
 
-		console.log(response);
+		console.log(response)
 
 		/*const options = {
 			method: 'post',
