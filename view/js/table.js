@@ -8,27 +8,26 @@ var newArray = []
 	}
 	getData();
 
-	function insertData(name, days, user){ 
-			console.log(name + " " + days + " "+ user);
+	async function insertData(name, days, user){ 
+		const formData = {
+			'Name': name,
+			'days': days,
+			'user': user
+		};
+		const options = {
+			method: 'post',
+			mode: 'cors', // no-cors, *cors, same-origin
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: formData
+		};
 
-			const formData = {
-				'Name': name,
-				'days': days,
-				'user': user
-			};
-
-			fetch('/bikes', {
-                method: 'post',
-                body: formData
-            }).then(function (response){
-				console.log(response);
-                return response.text();
-            }).then(function (text){
-                console.log(text);
-            }).catch(function (error){
-                console.log(error);
-            })	
-
+		console.log(options)
+		const response = await fetch('/bikes', options)
+		const data  = await response.json();
+		console.log(data);
 	} 
 	
 
