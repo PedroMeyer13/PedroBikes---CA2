@@ -1,10 +1,17 @@
+var newArray = []
+	
 	async function getData(){
 		const response = await fetch('/bikes');
 		const data = await response.json();
-		console.log(data)
+		newArray = data;
 		buildTable(data)
 	}
 	getData();
+
+	function hello(name){ 
+			console.log('Hello');
+	} 
+	
 
 	function buildTable(data){
 		var table = document.getElementById('myTable')
@@ -24,7 +31,7 @@
 
 function select_row()
 {
-	$("#menuTable tbody tr[id]").on(function ()
+	$("#menuTable tbody tr[id]").tr(function ()
 	{
 		$(".selected").removeClass("selected");
 		$(this).addClass("selected");

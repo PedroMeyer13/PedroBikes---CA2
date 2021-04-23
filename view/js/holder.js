@@ -1,18 +1,13 @@
-const { JSDOM } = require( "jsdom" );
-const { window } = new JSDOM( "" );
-const $ = require( "jquery" )( window );
-
 var newArray = []
 
-    $.ajax({
-		method:'GET',
-		url:'https://8000-blush-pony-ijnpjite.ws-eu03.gitpod.io/bikes',
-		success:function(response){
-			newArray = response
-			buildTable(newArray)
-			console.log(newArray)
-		}
-	})
+async function getData(){
+    const response = await fetch('/bikes');
+    const data = await response.json();
+    newArray = data;
+    buildTable(data)
+}
+    getData();
+
 	buildTable(newArray)
 
 	$('th').on('click', function(){
@@ -20,7 +15,6 @@ var newArray = []
      var order = $(this).data('order')
      var text = $(this).html()
      text = text.substring(0, text.length - 1);
-     
      
      
      if (order == 'desc'){

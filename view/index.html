@@ -37,9 +37,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="rentals.html">Orders</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jasontable.html">Table</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -67,16 +64,11 @@
             </div>
 
             <div class="col-lg-4 order-1">
-                <form enctype="application/json" action="/post/json" method="post">
+                <form id="myForm" enctype="application/json" action="/post/json" method="post">
                     <div class="form-group">
-                        <select class="form-control" name="sec_n">
-                            <option value="0">Road Bikes</option>
-                            <option value="1">Montain Bikes</option>
-                            <option value="2">Eletric Bikes</option>
-                            <option value="3">Fold Bikes</option>
-                        </select>
                         <input class="form-control mt-3" type="text" name="Name" placeholder="Name" required>
                         <input class="form-control mt-3" type="text" name="Days" placeholder="Days" required>
+                        <input class="form-control mt-3" type="text" name="User" placeholder="User" required>
                         <p id="Msg"></p>
                         <button type="submit" class="btn btn-outline-primary btn-block mt-3">Submit</button>
                     </div>
@@ -120,7 +112,14 @@
                 highlightKids('menuTable', this.checked);
             });
         });
+
+        const myForm = document.getElementById("myForm")
+        
+        myForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            hello("Pedro");
+        })
+
+
     </script>
 </body>
-
-</html>
