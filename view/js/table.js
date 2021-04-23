@@ -1,3 +1,4 @@
+
 var newArray = []
 	
 	async function getData(){
@@ -14,7 +15,14 @@ var newArray = []
 			'days': days,
 			'user': user
 		};
-		const options = {
+
+		const response = axios.post('/bikes', {
+			formData
+		  });
+
+		console.log(response);
+
+		/*const options = {
 			method: 'post',
 			mode: 'cors', // no-cors, *cors, same-origin
 			credentials: 'same-origin', // include, *same-origin, omit
@@ -27,7 +35,7 @@ var newArray = []
 		console.log(options)
 		const response = await fetch('/bikes', options)
 		const data  = await response.json();
-		console.log(data);
+		console.log(data);*/
 	} 
 	
 

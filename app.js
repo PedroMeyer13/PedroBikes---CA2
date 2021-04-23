@@ -1,5 +1,4 @@
 const http = require('http'),
-axios = require('axios'),
 path = require('path'), //The path module provides utilities for working with file and directory paths
 logger = require('morgan'),
 cors = require('cors'),
