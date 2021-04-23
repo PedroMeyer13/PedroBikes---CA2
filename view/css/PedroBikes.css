@@ -37,9 +37,11 @@ html {
        padding: 0.5rem;
        text-align: left;
   }
-   th {
-       font-weight: bold;
-  }
+   th{ 
+    font-weight: bold;
+    cursor: pointer;
+    color:#fff;
+        }
   .selected {
               background-color: #dc3545;
               color: #FFF;
