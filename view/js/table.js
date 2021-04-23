@@ -1,3 +1,30 @@
+var newArray = []
+
+    $.ajax({
+		method:'GET',
+		url:'https://8000-amethyst-reindeer-blsh2v9e.ws-eu03.gitpod.io/bikes',
+		success:function(response){
+			newArray = response
+			buildTable(newArray)
+			console.log(newArray)
+		}
+	})
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+		for (var i = 0; i < data.length; i++){
+			var colname = `name-${i}`
+			var colage = `age-${i}`
+			var colbirth = `birth-${i}`
+	
+			var row = `<tr>
+							<td>${data[i].bike}</td>
+							<td>${data[i].item}</td>
+							<td>${data[i].price}</td>
+					   </tr>`
+			table.innerHTML += row
+		}
+	}
 
 function select_row()
 {
@@ -29,4 +56,3 @@ function delete_row(sec, opt) // need to change delete
 		})
 	})
 };
-
