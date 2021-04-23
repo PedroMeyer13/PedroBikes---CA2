@@ -8,8 +8,27 @@ var newArray = []
 	}
 	getData();
 
-	function hello(name){ 
-			console.log('Hello');
+	function insertData(name, days, user){ 
+			console.log(name + " " + days + " "+ user);
+
+			const formData = {
+				'Name': name,
+				'days': days,
+				'user': user
+			};
+
+			fetch('/bikes', {
+                method: 'post',
+                body: formData
+            }).then(function (response){
+				console.log(response);
+                return response.text();
+            }).then(function (text){
+                console.log(text);
+            }).catch(function (error){
+                console.log(error);
+            })	
+
 	} 
 	
 

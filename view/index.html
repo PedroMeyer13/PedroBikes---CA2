@@ -64,11 +64,11 @@
             </div>
 
             <div class="col-lg-4 order-1">
-                <form id="myForm" enctype="application/json" action="/post/json" method="post">
+                <form id="myForm" enctype="application/json" action="welcome.php" method="post">
                     <div class="form-group">
-                        <input class="form-control mt-3" type="text" name="Name" placeholder="Name" required>
-                        <input class="form-control mt-3" type="text" name="Days" placeholder="Days" required>
-                        <input class="form-control mt-3" type="text" name="User" placeholder="User" required>
+                        <input class="form-control mt-3" type="text" name="Name" id="Name" placeholder="Name" required>
+                        <input class="form-control mt-3" type="text" name="Days" id="Days" placeholder="Days" required>
+                        <input class="form-control mt-3" type="text" name="User" id="User" placeholder="User" required>
                         <p id="Msg"></p>
                         <button type="submit" class="btn btn-outline-primary btn-block mt-3">Submit</button>
                     </div>
@@ -113,11 +113,10 @@
             });
         });
 
-        const myForm = document.getElementById("myForm")
-        
         myForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            hello("Pedro");
+            insertData(document.getElementById("Name").value, document.getElementById("Days").value, document.getElementById("User").value)
+
         })
 
 
