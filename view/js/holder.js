@@ -6,7 +6,7 @@ var newArray = []
 
     $.ajax({
 		method:'GET',
-		url:'https://8000-tomato-mackerel-lhlzgvio.ws-eu03.gitpod.io/bikes',
+		url:'https://8000-blush-pony-ijnpjite.ws-eu03.gitpod.io/bikes',
 		success:function(response){
 			newArray = response
 			buildTable(newArray)

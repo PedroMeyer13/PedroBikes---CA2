@@ -11,15 +11,6 @@ router.delete('/users/:id', userCtrl.deleteUser);
 
 module.exports.UPLOAD_PATH = "uploads";
 
-var multer = require("multer");
-var upload = multer({ dest: module.exports.UPLOAD_PATH});
-var imageCtrl = require('./image-controller');
-
-router.post('/images', upload.single('image'), imageCtrl.uploadImage);
-router.get('/images', imageCtrl.getImages);
-router.get('/images/:id', imageCtrl.getImage);
-router.delete('/images/:id', imageCtrl.deleteImage);
-
 var bikesCtrl = require('./bikes-controller');
 router.post('/bikes', bikesCtrl.createBike);
 router.get('/bikes', bikesCtrl.getBikes);

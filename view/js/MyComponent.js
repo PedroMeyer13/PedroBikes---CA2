@@ -13,7 +13,7 @@ class MyComponent extends React.Component {
     }
 
     componentDidMount() {
-      fetch("https://api.example.com/items")
+      fetch("https://8000-blush-pony-ijnpjite.ws-eu03.gitpod.io/bikes")
         .then(res => res.json())
         .then(
           (result) => {

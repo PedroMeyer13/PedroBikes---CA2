@@ -1,14 +1,10 @@
-var newArray = []
-
-    $.ajax({
-		method:'GET',
-		url:'https://8000-amethyst-reindeer-blsh2v9e.ws-eu03.gitpod.io/bikes',
-		success:function(response){
-			newArray = response
-			buildTable(newArray)
-			console.log(newArray)
-		}
-	})
+	async function getData(){
+		const response = await fetch('/bikes');
+		const data = await response.json();
+		console.log(data)
+		buildTable(data)
+	}
+	getData();
 
 	function buildTable(data){
 		var table = document.getElementById('myTable')
@@ -28,19 +24,20 @@ var newArray = []
 
 function select_row()
 {
-	$("#menuTable tbody tr[id]").click(function ()
+	$("#menuTable tbody tr[id]").on(function ()
 	{
 		$(".selected").removeClass("selected");
 		$(this).addClass("selected");
 		var section = $(this).prevAll("tr").children("td[colspan='3']").length - 1;
 		var option = $(this).attr("id") - 1;
 		delete_row(section, option);
+		console.log("Hello")
 	})
 };
 
-function delete_row(sec, opt) // need to change delete
+function delete_row(sec, opt)
 {
-	$("#delete").click(function ()
+	$("#delete").trigger(function ()
 	{
 		$.ajax(
 		{
