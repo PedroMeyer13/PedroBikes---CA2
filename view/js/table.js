@@ -21,7 +21,8 @@ var newArray = []
 			mode: 'cors', // no-cors, *cors, same-origin
 			credentials: 'same-origin', // include, *same-origin, omit
 			headers: {
-				'Content-Type': 'application/json'
+				"Accept": "application/json",
+    			"Content-Type": "application/json"
 			},
 			body: JSON.stringify(formData)
 		};
