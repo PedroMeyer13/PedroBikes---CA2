@@ -12,7 +12,11 @@ var port = process.env.PORT || 8000;
 var server = http.createServer(app); //This is where our server gets created
 dotenv.config();
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
+
 app.use(logger('tiny'));
 app.use(require('./routes'));
 app.use(express.json())

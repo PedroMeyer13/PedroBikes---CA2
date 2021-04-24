@@ -16,28 +16,20 @@ var newArray = []
 			'user': user
 		};
 
-		const response = axios.post('/bikes', {
-			Name: name,
-			Days: days,
-			user: user
-		  });
-
-		console.log(response)
-
-		/*const options = {
+		const options = {
 			method: 'post',
 			mode: 'cors', // no-cors, *cors, same-origin
 			credentials: 'same-origin', // include, *same-origin, omit
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: formData
+			body: JSON.stringify(formData)
 		};
 
 		console.log(options)
-		const response = await fetch('/bikes', options)
+		const response = await fetch('/bikes', options);
 		const data  = await response.json();
-		console.log(data);*/
+		console.log(data);
 	} 
 	
 
