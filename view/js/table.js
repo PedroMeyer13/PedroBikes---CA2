@@ -17,14 +17,14 @@ var newArray = []
 		};
 
 		const options = {
-			method: 'post',
+			method: 'POST',
 			mode: 'cors', // no-cors, *cors, same-origin
 			credentials: 'same-origin', // include, *same-origin, omit
 			headers: {
 				"Accept": "application/json",
     			"Content-Type": "application/json"
 			},
-			body: JSON.stringify(formData)
+			data: JSON.stringify(formData)
 		};
 
 		console.log(options)
