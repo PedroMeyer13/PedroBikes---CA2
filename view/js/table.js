@@ -8,22 +8,22 @@ var newArray = []
 	}
 	getData();
 
-	async function insertData(name, days, user){ 
+	function insertData(bike, user, days){ 
 		$.ajax(
-		{
-			url: "/bikes",
-			type: "POST",
-			data:
 			{
-				bike: name,
-   				kids: false,
-    			item: user,
-    			price: "21"
-			},
-			cache: false,
-		}).then(response => {
-			console.log(response);
-		  });
+				url: "/rental",
+				type: "post",
+				data:
+				{
+					bike: bike,
+					user: user,
+                    days: days
+				},
+				cache: false,
+			}).then(response => {
+                console.log(response);
+              });
+			  console.log("hello");
 
 	} 
 	

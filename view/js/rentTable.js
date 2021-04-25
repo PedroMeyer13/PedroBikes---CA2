@@ -41,10 +41,12 @@ $(document).ready(function(){
          $.ajax(
 			{
 				url: "/rental",
-				type: "DELETE",
+				type: "post",
 				data:
 				{
 					bike: col1,
+					user: col2,
+                    days: col3
 				},
 				cache: false,
 			}).then(response => {

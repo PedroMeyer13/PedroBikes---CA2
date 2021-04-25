@@ -21,7 +21,7 @@ exports.createRental = function(req, res) {
   };
 
   exports.deleteRental = function(req, res) {
-    Rental.deleteOne({bike: req.params.bike}, function (err, rental) {
+    Rental.deleteOne({bike: req.params.bike, user: req.params.user, days: req.params.days}, function (err, rental) {
       if (err) {
         res.status(400).json(err); 
       } 

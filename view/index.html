@@ -69,8 +69,8 @@
                 <form id="myForm" enctype="application/json" method="post">
                     <div class="form-group">
                         <input class="form-control mt-3" type="text" name="Bike" id="Bike" placeholder="Bike" required>
-                        <input class="form-control mt-3" type="text" name="Days" id="Days" placeholder="Days" required>
                         <input class="form-control mt-3" type="text" name="User" id="User" placeholder="User" required>
+                        <input class="form-control mt-3" type="text" name="Days" id="Days" placeholder="Days" required>
                         <p id="Msg"></p>
                         <button type="submit" class="btn btn-outline-primary btn-block mt-3">Submit</button>
                     </div>
@@ -86,17 +86,11 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/table.js"></script>
-    <script src="js/PedroBikes.js"></script>
     <script>
         myForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            insertData(document.getElementById("Name").value, document.getElementById("Days").value, document.getElementById("User").value)
+            insertData(document.getElementById("Bike").value, document.getElementById("User").value, document.getElementById("Days").value)
 
         })
-
-
-
-
-
     </script>
 </body>
