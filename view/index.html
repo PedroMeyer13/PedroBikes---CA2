@@ -15,6 +15,7 @@
     <link href="css/PedroBikes.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>  
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 </head>
 
@@ -52,7 +53,7 @@
             </div>
                 
             <div id="results" class="col-lg-8 order-2 mb-5">
-                <table>
+                <table id="fullTable">
                     <tr  class="bg-info">
                         <th data-column="name" data-order="desc">Type</th>
                         <th data-column="age" data-order="desc">Bike</th>
@@ -67,7 +68,7 @@
             <div class="col-lg-4 order-1">
                 <form id="myForm" enctype="application/json" method="post">
                     <div class="form-group">
-                        <input class="form-control mt-3" type="text" name="Name" id="Name" placeholder="Name" required>
+                        <input class="form-control mt-3" type="text" name="Bike" id="Bike" placeholder="Bike" required>
                         <input class="form-control mt-3" type="text" name="Days" id="Days" placeholder="Days" required>
                         <input class="form-control mt-3" type="text" name="User" id="User" placeholder="User" required>
                         <p id="Msg"></p>
@@ -76,21 +77,6 @@
                 </form>
                 <button id="delete" class="btn btn-outline-danger btn-block mt-3">Delete</button>
                 <p class="text-muted text-center">To delete an Bike, click the required row first</p>
-                <form>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">&euro;</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Total" name="txtBillAmt">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <input type="checkbox" id="showKids" aria-label="Checkbox for following text input">
-                            </div>
-                        </div>
-                        <input class="btn btn-block btn btn btn-outline-dark mt-2" type="button" name="btnCalcBill"
-                            value="Calculate Bill" id="calcBill">
-                    </div>
-                </form>
             </div>
         </div>
     </div>
@@ -104,21 +90,14 @@
     <script src="js/table.js"></script>
     <script src="js/PedroBikes.js"></script>
     <script>
-        window.addEventListener("load", function() {
-            document.forms[1].txtBillAmt.value = calculateBill('menuTable');
-            document.querySelector("#calcBill").addEventListener("click", function() {
-                document.forms[1].txtBillAmt.value = calculateBill('menuTable');
-            });
-            document.querySelector("#showKids").addEventListener("click", function() {
-                highlightKids('menuTable', this.checked);
-            });
-        });
-
         myForm.addEventListener("submit", (e) => {
             e.preventDefault();
             insertData(document.getElementById("Name").value, document.getElementById("Days").value, document.getElementById("User").value)
 
         })
+
+
+
 
 
     </script>

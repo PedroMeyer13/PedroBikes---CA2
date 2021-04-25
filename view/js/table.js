@@ -9,7 +9,6 @@ var newArray = []
 	getData();
 
 	async function insertData(name, days, user){ 
-		
 		$.ajax(
 		{
 			url: "/bikes",
@@ -17,13 +16,14 @@ var newArray = []
 			data:
 			{
 				bike: name,
-   				kids: days,
+   				kids: false,
     			item: user,
     			price: "21"
 			},
 			cache: false,
-		})
-
+		}).then(response => {
+			console.log(response);
+		  });
 
 	} 
 	
@@ -39,39 +39,23 @@ var newArray = []
 							<td>${data[i].bike}</td>
 							<td>${data[i].item}</td>
 							<td>${data[i].price}</td>
+							<td><button type="button" class="btn btn-outline-primary" id="setText">Select<i class="icon-remove"></i></button></td>
 					   </tr>`
 			table.innerHTML += row
 		}
 	}
+	
 
-function select_row()
-{
-	$("#menuTable tbody tr[id]").tr(function ()
-	{
-		$(".selected").removeClass("selected");
-		$(this).addClass("selected");
-		var section = $(this).prevAll("tr").children("td[colspan='3']").length - 1;
-		var option = $(this).attr("id") - 1;
-		delete_row(section, option);
-		console.log("Hello")
-	})
-};
+	$(document).ready(function(){
 
-function delete_row(sec, opt)
-{
-	$("#delete").trigger(function ()
-	{
-		$.ajax(
-		{
-			url: "/post/delete",
-			type: "POST",
-			data:
-			{
-				section: sec,
-				option: opt
-			},
-			cache: false,
-			success: setTimeout(draw_table, 1000)
-		})
-	})
-};
+		// code to read selected table row cell data (values).
+		$("#fullTable").on('click','#setText',function(){
+			 // get the current row
+			 var currentRow=$(this).closest("tr"); 
+			 
+			 var col2=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+			 $('#Bike').val(col2);
+		});
+	});
+
+
