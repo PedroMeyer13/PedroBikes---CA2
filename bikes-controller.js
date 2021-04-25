@@ -12,7 +12,6 @@ exports.createBike = function(req, res) {
 });
 };
 
-
 exports.getBikes = function(req, res) {
   Bikes.find({}, function (err, bikes) {
     if (err) {

@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/PedroBikes.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+    <script src='js/rentTable.js'></script>
 
 </head>
 
@@ -44,21 +45,18 @@
     </div>
 </div>
 
-<table class="table table-striped">
-    <tr  class="bg-info">
-        <th data-column="name" data-order="desc">Type &#9650</th>
-        <th data-column="age" data-order="desc">Bike &#9650</th>
-        <th data-column="birthdate" data-order="desc">Price &#9650</th>
-    </tr>
-
-    <tbody id="myTable">
-        
-    </tbody>
-</table>
-
-<script>
-
-</script>
+<div id="results">
+    <table id="fullTable">
+        <tr  class="bg-info">
+            <th data-column="name" data-order="desc">Type</th>
+            <th data-column="age" data-order="desc">Bike</th>
+            <th data-column="birthdate" data-order="desc">Price</th>
+            <th data-column="Fix" data-order="desc"></th>
+        </tr>
+        <tbody id="myTable">
+        </tbody>
+    </table> 
+</div>
     
 </body>
 </html>
