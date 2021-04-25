@@ -1,4 +1,3 @@
-
 var newArray = []
 	
 	async function getData(){
@@ -10,27 +9,22 @@ var newArray = []
 	getData();
 
 	async function insertData(name, days, user){ 
-		const formData = {
-			'Name': name,
-			'days': days,
-			'user': user
-		};
-
-		const options = {
-			method: 'POST',
-			mode: 'cors', // no-cors, *cors, same-origin
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				"Accept": "application/json",
-    			"Content-Type": "application/json"
+		
+		$.ajax(
+		{
+			url: "/bikes",
+			type: "POST",
+			data:
+			{
+				bike: name,
+   				kids: days,
+    			item: user,
+    			price: "21"
 			},
-			data: JSON.stringify(formData)
-		};
+			cache: false,
+		})
 
-		console.log(options)
-		const response = await fetch('/bikes', options);
-		const data  = await response.json();
-		console.log(data);
+
 	} 
 	
 
