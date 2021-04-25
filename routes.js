@@ -19,7 +19,7 @@ router.delete('/bikes/:item', bikesCtrl.deleteBikes);
 var rentalCtrl = require('./rental-controller');
 router.get('/rental', rentalCtrl.getRental);
 router.post('/rental', rentalCtrl.createRental);
-router.delete('rental', rentalCtrl.deleteRental); 
+router.delete('rental/:bikes', rentalCtrl.deleteRental); 
 
 module.exports = router;
 
