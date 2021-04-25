@@ -2,7 +2,6 @@ const express = require('express'),
 router = express.Router();
 
 var userCtrl = require('./user-controller');
-
 router.post('/users', userCtrl.createUser);
 router.get('/users', userCtrl.getUsers);
 router.get('/users/:id', userCtrl.getUser);
@@ -22,7 +21,6 @@ router.get('/rental', rentalCtrl.getRental);
 router.post('/rental', rentalCtrl.createRental);
 router.delete('rental', rentalCtrl.deleteRental); 
 
-module.exports.UPLOAD_PATH = "uploads";
 module.exports = router;
 
 

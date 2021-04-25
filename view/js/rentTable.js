@@ -1,7 +1,7 @@
 var newArray = []
 	
 	async function getData(){
-		const response = await fetch('/bikes');
+		const response = await fetch('/rental');
 		const data = await response.json();
 		newArray = data;
 		buildTable(data)
@@ -19,8 +19,8 @@ var newArray = []
 
         var row = `<tr>
                         <td>${data[i].bike}</td>
-                        <td>${data[i].item}</td>
-                        <td>${data[i].price}</td>
+                        <td>${data[i].user}</td>
+                        <td>${data[i].days}</td>
                         <td><button type="button" class="btn btn-danger" id="DeleteOrder">Delete<i class="icon-remove"></i></button></td>
                    </tr>`
         table.innerHTML += row

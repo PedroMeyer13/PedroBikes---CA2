@@ -20,7 +20,6 @@ exports.createRental = function(req, res) {
     }); 
   };
 
-
   exports.deleteRental = function(req, res) {
     Rental.deleteOne({item: req.params.item}, function (err, rental) {
       if (err) {

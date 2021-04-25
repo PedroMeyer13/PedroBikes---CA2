@@ -13,10 +13,7 @@ var server = http.createServer(app); //This is where our server gets created
 dotenv.config();
 
 app.use(express.json());
-app.use(express.urlencoded({
-  extended: true
-}));
-
+app.use(express.urlencoded({  extended: true}));
 app.use(logger('tiny'));
 app.use(require('./routes'));
 app.use(express.json())
