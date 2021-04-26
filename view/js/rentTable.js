@@ -18,6 +18,7 @@ var newArray = []
         var colbirth = `birth-${i}`
 
         var row = `<tr>
+                        <td hidden>${data[i]._id}</td>
                         <td>${data[i].bike}</td>
                         <td>${data[i].user}</td>
                         <td>${data[i].days}</td>
@@ -34,27 +35,24 @@ $(document).ready(function(){
          // get the current row
          var currentRow=$(this).closest("tr"); 
          
-         var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-         var col2=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
-         var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
-        
+         // get the element of wich cell of the row
+         var col1=currentRow.find("td:eq(0)").text(); 
+         var col2=currentRow.find("td:eq(1)").text();
+         var col3=currentRow.find("td:eq(2)").text();
+         var col4=currentRow.find("td:eq(3)").text(); 
+            console.log(col1);
+
          $.ajax(
 			{
-				url: "/rental",
-				type: "post",
-				data:
-				{
-					bike: col1,
-					user: col2,
-                    days: col3
-				},
+				url: "/rental/"+col1,
+				type: "DELETE",
 				cache: false,
 			}).then(response => {
                 console.log(response);
               });
 
             var data=col1+"\n"+col2+"\n"+col3;
-            alert(data);
+            alert(data + " \n You have deleted one order");
     });
 });
 

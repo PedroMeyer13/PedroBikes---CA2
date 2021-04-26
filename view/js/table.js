@@ -23,7 +23,7 @@ var newArray = []
 			}).then(response => {
                 console.log(response);
               });
-			  console.log("hello");
+			 alert("Your order has been processed!! ")
 
 	} 
 	
@@ -34,15 +34,17 @@ var newArray = []
 			var colname = `name-${i}`
 			var colage = `age-${i}`
 			var colbirth = `birth-${i}`
-	
+			
 			var row = `<tr>
 							<td>${data[i].bike}</td>
 							<td>${data[i].item}</td>
+							<td hidden>${data[i].kids}</td>
 							<td>${data[i].price}</td>
 							<td><button type="button" class="btn btn-outline-primary" id="setText">Select<i class="icon-remove"></i></button></td>
 					   </tr>`
 			table.innerHTML += row
 		}
+
 	}
 	
 
