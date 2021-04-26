@@ -20,6 +20,7 @@ var rentalCtrl = require('./rental-controller');
 router.get('/rental', rentalCtrl.getRental);
 router.post('/rental', rentalCtrl.createRental);
 router.delete('/rental/:id', rentalCtrl.deleteRental); 
+router.put('/rental/:id', rentalCtrl.updateRental);
 
 module.exports = router;
 

@@ -28,3 +28,12 @@ exports.createRental = function(req, res) {
       res.json(rental);
     }); 
   };
+
+  exports.updateRental = function(req, res) {
+    Rental.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, function (err, rental) {
+      if (err) {
+        res.status(400).json(err); 
+      } 
+      res.json(rental);
+    }); 
+  };
