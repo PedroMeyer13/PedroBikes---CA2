@@ -74,6 +74,8 @@
                         <input class="form-control mt-3" type="text" name="Days" id="Days" placeholder="Days" required>
                         <p id="Msg"></p>
                         <button type="submit" class="btn btn-outline-primary btn-block mt-3">Submit</button>
+                        <input class="form-check-input" type="checkbox" value="" id="KidsCheck">
+                        <label class="form-check-label" for="KidsCheck">  Click here to check all the bikes that are available for kids  </label>
                     </div>
                 </form>
             </div>
@@ -93,5 +95,17 @@
             insertData(document.getElementById("Bike").value, document.getElementById("User").value, document.getElementById("Days").value)
 
         })
+
+        var checkbox = document.querySelector("#KidsCheck");
+
+        checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            console.log("Checkbox is checked..");
+            KidsCheck();
+        } else {
+            console.log("Checkbox is not checked..");
+        }
+        });
+        
     </script>
 </body>

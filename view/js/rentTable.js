@@ -51,8 +51,9 @@ $(document).ready(function(){
                 console.log(response);
               });
 
-            var data=col1+"\n"+col2+"\n"+col3;
+            var data=col1+"\n"+col2+"\n"+col3 +"\n"+col4;
             alert(data + " \n You have deleted one order");
+             location.reload();
     });
 });
 

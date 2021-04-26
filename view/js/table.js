@@ -1,4 +1,5 @@
 var newArray = []
+var priceBike = 0;
 	
 	async function getData(){
 		const response = await fetch('/bikes');
@@ -9,6 +10,9 @@ var newArray = []
 	getData();
 
 	function insertData(bike, user, days){ 
+
+		newValue = days * priceBike;
+		console.log(newValue);
 		$.ajax(
 			{
 				url: "/rental",
@@ -26,16 +30,26 @@ var newArray = []
 			 alert("Your order has been processed!! ")
 
 	} 
+
+	function KidsCheck(){
+		var oTable = document.getElementById('Green');
+		console.log("Its here")
+	}
 	
 
 	function buildTable(data){
+		var kidsVer = "NotKids";
 		var table = document.getElementById('myTable')
 		for (var i = 0; i < data.length; i++){
 			var colname = `name-${i}`
 			var colage = `age-${i}`
 			var colbirth = `birth-${i}`
+
+			if(data[i].kids == true){
+				kidsVer = "Green"
+			}
 			
-			var row = `<tr>
+			var row = `<tr ${kidsVer}>
 							<td>${data[i].bike}</td>
 							<td>${data[i].item}</td>
 							<td hidden>${data[i].kids}</td>
@@ -43,6 +57,7 @@ var newArray = []
 							<td><button type="button" class="btn btn-outline-primary" id="setText">Select<i class="icon-remove"></i></button></td>
 					   </tr>`
 			table.innerHTML += row
+			console.log(kidsVer);
 		}
 
 	}
@@ -55,7 +70,8 @@ var newArray = []
 			 // get the current row
 			 var currentRow=$(this).closest("tr"); 
 			 
-			 var col2=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+			 var col2=currentRow.find("td:eq(1)").text(); // get current row for mu order
+			 priceBike = currentRow.find("td:eq(2)").text() // get the price for my order
 			 $('#Bike').val(col2);
 		});
 	});
