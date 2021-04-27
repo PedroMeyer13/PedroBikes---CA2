@@ -1,3 +1,5 @@
+// code based from what we have learned in class, youtube tutorial, Jquery documentation and my last CA
+
 var newArray = []
 	
 	async function getData(){
@@ -8,14 +10,11 @@ var newArray = []
 	}
 	getData();
  
- 
+ // youtube tutorial and Jquery documentation
  function buildTable(data){
     var table = document.getElementById('myTable')
     table.innerHTML = ''
     for (var i = 0; i < data.length; i++){
-        var coluser = `user-${i}`
-        var colage = `age-${i}`
-        var colbirth = `birth-${i}`
 
         var row = `<tr>
                         <td hidden>${data[i]._id}</td>
@@ -28,6 +27,7 @@ var newArray = []
     }
 }
 
+// stack overflow code
 $(document).ready(function(){
     // code to read selected table row cell data (values).
     $("#fullTable").on('click','#DeleteOrder',function(){
@@ -56,7 +56,7 @@ $(document).ready(function(){
     });
 });
 
-
+// Jquery documentation
 $(document).ready(function()
 	{
         $('#search-input').on('keyup', function(){
@@ -67,6 +67,7 @@ $(document).ready(function()
         })		
 	});
 
+    // Jquery documentation and youtube tutorial
     $(document).ready(function()
 	{	
         $('th').on('click', function(){
@@ -94,7 +95,7 @@ $(document).ready(function()
 			
 	});
   
-   
+   // youtube tutorial
    function searchTable(value, data){
        var filteredTable = []
    

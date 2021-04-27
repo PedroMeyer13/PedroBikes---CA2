@@ -1,5 +1,5 @@
 var newArray = []
-	
+	//stack overflow code
 	async function getData(){
 		const response = await fetch('/bikes');
 		const data = await response.json();
@@ -8,9 +8,8 @@ var newArray = []
 	}
 	getData();
 
+	// jquery documentation
 	function insertData(bike, user, days){ 
-
-	
 		$.ajax(
 			{
 				url: "/rental",
@@ -31,7 +30,7 @@ var newArray = []
 	} 
 
 	function KidsCheck(bShowKids){
-
+		// code reused from my last CA and add some code from the Jquery documentation
 		 // if bShowKids is true, then we're highlighting the bike for kids
 		 var i = 0;
 		 var oTable = document.getElementById('myTable');
@@ -49,13 +48,10 @@ var newArray = []
 		 };
 	 };
 	
-
+	 // code is based on a tutorial and Jquery documentation
 	function buildTable(data){
 		var table = document.getElementById('myTable')
 		for (var i = 0; i < data.length; i++){
-			var colname = `name-${i}`
-			var colage = `age-${i}`
-			var colbirth = `birth-${i}`
 			var kidsVer = "NotKids";
 		
 			if(data[i].kids == true){
@@ -86,4 +82,17 @@ var newArray = []
 		});
 	});
 
+
+	// Code from stack overflow
+	function sanitizeString(str){
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    return str.trim();
+	}
+
+	function validNumber(str) {
+   //based on code from Stack overflow
+  	if (typeof str != "string") return false // we only process strings!  
+ 	 return !isNaN(str) && // use type coercion to parse the entirety of the string (`parseFloat` alone does not do this)...
+         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+	} 
 

@@ -1,3 +1,5 @@
+
+// code based from what we have learned in class
 var Rental = require('./models/rentals')
 
 exports.createRental = function(req, res) { 
