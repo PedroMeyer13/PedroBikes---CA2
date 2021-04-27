@@ -14,6 +14,7 @@ router.post('/bikes', bikesCtrl.createBike);
 router.get('/bikes', bikesCtrl.getBikes);
 router.get('/bikes/:kids', bikesCtrl.getKids);
 router.delete('/bikes/:item', bikesCtrl.deleteBikes);
+router.put('/bikes/:id', bikesCtrl.updateBikes);
 //router.get('/bikes/:item', bikesCtrl.getBike);
 
 var rentalCtrl = require('./rental-controller');

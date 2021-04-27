@@ -50,6 +50,16 @@ exports.deleteBikes = function(req, res) {
   }); 
 };
 
+
+exports.updateBikes = function(req, res) {
+  Bikes.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, function (err, bikes) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.json(bikes);
+  }); 
+};
+
 /*exports.deleteBikes = function(req, res) {
   Bikes.findByIdAndRemove({_id: req.params.id}, function (err, bikes) {
     if (err) {
