@@ -1,4 +1,4 @@
-var Bikes = require('./models/bikes')
+var Bikes = require('../models/bikes')
 
 exports.createBike = function(req, res) { 
   var newbike = new Bikes(req.body);

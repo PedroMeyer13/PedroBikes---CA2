@@ -86,13 +86,10 @@ var newArray = []
 	// Code from stack overflow
 	function sanitizeString(str){
     str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
-    return str.trim();
-	}
+	str.trim();
 
-	function validNumber(str) {
-   //based on code from Stack overflow
-  	if (typeof str != "string") return false // we only process strings!  
- 	 return !isNaN(str) && // use type coercion to parse the entirety of the string (`parseFloat` alone does not do this)...
-         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
-	} 
+	 if (typeof str != "string") return false // we only process strings!  
+	 return !isNaN(str) && // use type coercion to parse the entirety of the string (`parseFloat` alone does not do this)...
+		!isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+	}
 

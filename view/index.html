@@ -93,7 +93,15 @@
         myForm.addEventListener("submit", (e) => {
             e.preventDefault();
             
-            insertData(document.getElementById("Bike").value, document.getElementById("User").value, document.getElementById("Days").value)
+            var bikeSanatized = sanitizeString(document.getElementById("Bike").value);
+            var userSanitazed = sanitizeString(document.getElementById("User").value);
+            var daysSanitazed = sanitizeString(document.getElementById("Days").value);
+
+            if( bikeSanatized == false & userSanitazed == false & daysSanitazed == true)  {
+                insertData(document.getElementById("Bike").value, document.getElementById("User").value, document.getElementById("Days").value)
+            }else{
+                alert("Invalid Information")
+            }        
 
         })
 

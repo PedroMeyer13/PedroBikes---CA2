@@ -1,5 +1,5 @@
 // code based form what we have learned in class
-var User = require('./models/user')
+var User = require('../models/user')
 
 exports.createUser = function(req, res) { 
     var newuser = new User(req.body);
