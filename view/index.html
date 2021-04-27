@@ -100,7 +100,10 @@
         checkbox.addEventListener('change', function() {
         if (this.checked) {
             console.log("Checkbox is checked..");
-            KidsCheck();
+            KidsCheck(1);
+        }else{
+            location.reload();
+            console.log("Checkbox is not checked..");
         }
         });
         

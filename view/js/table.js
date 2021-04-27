@@ -29,14 +29,24 @@ var newArray = []
 
 	} 
 
-	function KidsCheck(){
+	function KidsCheck(bShowKids){
 
-		var table = document.getElementById('myTable')
-		var row = document.getElementById('green')
-
-		console.log(table)
-		console.log(row)
-	}
+		 // if bShowKids is true, then we're highlighting the bike for kids
+		 var i = 0;
+		 var oTable = document.getElementById('myTable');
+		 var aTRs = oTable.getElementsByTagName('tr');
+		 // walk through each of the table rows and see if it has a 
+		 // "Kids" attribute on it.
+		 for (i = 0; i < aTRs.length; i++) {
+			 if (aTRs[i].getAttribute('kids') == "green") {
+				 if (bShowKids = 0) {
+					aTRs[i].style.backgroundColor = "";
+				 } else {
+					aTRs[i].style.backgroundColor = "lightGreen";
+				 };
+			 };
+		 };
+	 };
 	
 
 	function buildTable(data){
@@ -51,7 +61,7 @@ var newArray = []
 				kidsVer = "green"
 			}
 			
-			var row = `<tr id ='${kidsVer}'>
+			var row = `<tr kids ='${kidsVer}'>
 							<td>${data[i].bike}</td>
 							<td>${data[i].item}</td>
 							<td hidden>${data[i].kids}</td>
@@ -70,8 +80,7 @@ var newArray = []
 		$("#fullTable").on('click','#setText',function(){
 			 // get the current row
 			 var currentRow=$(this).closest("tr"); 
-			 
-			 var col2=currentRow.find("td:eq(1)").text(); // get current row for mu order
+			 var col2=currentRow.find("td:eq(1)").text(); // get current row for the order
 
 			 $('#Bike').val(col2);
 		});

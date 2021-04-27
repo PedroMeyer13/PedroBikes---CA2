@@ -29,7 +29,6 @@ var newArray = []
 }
 
 $(document).ready(function(){
-
     // code to read selected table row cell data (values).
     $("#fullTable").on('click','#DeleteOrder',function(){
          // get the current row
@@ -77,7 +76,6 @@ $(document).ready(function()
             text = text.substring(0, text.length - 1);
             
             
-            
             if (order == 'desc'){
                newArray = newArray.sort((a, b) => a[column] > b[column] ? 1 : -1)
                $(this).data("order","asc");
@@ -93,9 +91,6 @@ $(document).ready(function()
            })
 			
 	});
-
-   
-   
   
    
    function searchTable(value, data){
