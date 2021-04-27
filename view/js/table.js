@@ -81,7 +81,6 @@ var newArray = []
 			 // get the current row
 			 var currentRow=$(this).closest("tr"); 
 			 var col2=currentRow.find("td:eq(1)").text(); // get current row for the order
-
 			 $('#Bike').val(col2);
 		});
 	});
