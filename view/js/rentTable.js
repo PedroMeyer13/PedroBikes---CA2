@@ -13,7 +13,7 @@ var newArray = []
     var table = document.getElementById('myTable')
     table.innerHTML = ''
     for (var i = 0; i < data.length; i++){
-        var colname = `name-${i}`
+        var coluser = `user-${i}`
         var colage = `age-${i}`
         var colbirth = `birth-${i}`
 
@@ -61,7 +61,7 @@ $(document).ready(function()
 	{
         $('#search-input').on('keyup', function(){
             var value = $(this).val()
-            console.log("value")
+            console.log(value)
             var data = searchTable(value, newArray)
             buildTable(data)
         })		
@@ -70,13 +70,15 @@ $(document).ready(function()
     $(document).ready(function()
 	{	
         $('th').on('click', function(){
-            var column = $(this).data('colname')
+            var column = $(this).data('bike')
             var order = $(this).data('order')
             var text = $(this).html()
             text = text.substring(0, text.length - 1);
             
             
             if (order == 'desc'){
+                console.log(column)
+                console.log(order)
                newArray = newArray.sort((a, b) => a[column] > b[column] ? 1 : -1)
                $(this).data("order","asc");
                text += '&#9660'
@@ -99,10 +101,12 @@ $(document).ready(function()
        for(var i = 0; i < data.length; i++){
            escape(value).toLowerCase()
            value = value.toLowerCase();
-           var name = data[i].bike.toLowerCase()
-   
-           if(name.includes(value)){
+           var user = data[i].user.toLowerCase()
+           var bikes =  data[i].bike.toLowerCase()
+           if(user.includes(value)){
                filteredTable.push(data[i])
+           }else if (bikes.includes(value)){
+                filteredTable.push(data[i])
            }
        }
        return filteredTable
