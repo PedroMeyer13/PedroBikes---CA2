@@ -70,7 +70,7 @@ $(document).ready(function()
     $(document).ready(function()
 	{	
         $('th').on('click', function(){
-            var column = $(this).data('bike')
+            var column = $(this).data('column')
             var order = $(this).data('order')
             var text = $(this).html()
             text = text.substring(0, text.length - 1);

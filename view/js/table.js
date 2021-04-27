@@ -26,6 +26,7 @@ var newArray = []
                 console.log(response);
               });
 			 alert("Your order has been processed!! ")
+			 location.reload();
 
 	} 
 
